@@ -1,0 +1,31 @@
+<!--
+  Generated template for the TourPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <ion-slides #slides>
+
+            <ion-slide *ngFor="let tour of tour">
+                <p> {{tour.question}} </p>
+                
+                <img src="{{tour.image}}" style="height: 140px" >
+                <div *ngFor="let a of tour.answers">
+               
+                  <button ion-button color="light" round full (click)="next(a.answer) " >{{a.answer}}</button>
+                </div>
+               
+          </ion-slide>
+          <ion-slide>
+              <ion-label>please click the button below to <br>get your score</ion-label>
+              <button class="subm" name="submit" (click)="openResultPage()" *ngIf="submit1" class="btn1">submit</button>
+            </ion-slide>
+          </ion-slides>
+        </div>
+</ion-content>
